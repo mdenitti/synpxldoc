@@ -19,6 +19,12 @@
           @endif
           <p class="card-text">{{ $teacher->description }}</p>
 
+           @if (!empty($teacher->location->name))
+            <h6 class="card-subtitle mb-2 text-muted">{{ $teacher->location->name }}</h6>
+          @else
+            <h6 class="card-subtitle mb-2 text-muted">Nog geen locatie toegewezen</h6>
+          @endif
+
           <a href="mailto:{{ $teacher->email }}" class="card-link">Mail</a>
           <a href="tel:{{ $teacher->phone }}" class="card-link">Bel</a>
         </div>
