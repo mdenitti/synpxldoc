@@ -34,16 +34,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{route('home')}}">Home</a>
+                  <a class="{{Request::path() === '/' ? 'nav-link active active' : 'nav-link' }}" href="{{route('home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{route('about')}}">About us</a>
+                  <a class="{{Request::path() === 'about' ? 'nav-link active active' : 'nav-link' }}" href="{{route('about')}}">About us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{route('faq')}}">FAQ</a>
+                  <a class="{{Request::path() === 'faq' ? 'nav-link active active' : 'nav-link' }}" href="{{route('faq')}}">FAQ</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{route('contact')}}">Contact us</a>
+                  <a class="{{Request::path() === 'contact' ? 'nav-link active active' : 'nav-link' }}" href="{{route('contact')}}">Contact us</a>
                 </li>
 
                  <li class="nav-item docent">
