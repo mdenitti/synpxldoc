@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Location extends Model
 {
     use HasFactory;
+
+    // make relation with teacher
+    public function teachers()
+    {
+        return $this->hasMany(Teacher::class);
+    }
 }

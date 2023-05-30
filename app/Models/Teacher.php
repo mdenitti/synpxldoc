@@ -14,4 +14,10 @@ class Teacher extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    // relation with location
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
 }
