@@ -24,6 +24,11 @@ Route::get('/location/{id}', function ($id) {
     return view('location', compact('location'));
 });
 
+// home routes
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
 // about routes
 Route::get('/about', function () {
     $pages = Page::where('id', 2)->get();
