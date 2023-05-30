@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Models\Location;
 use App\Models\Category;
 use App\Models\Page;
@@ -30,9 +31,42 @@ Route::get('/location/{id}', function ($id) {
 // home routes
 Route::get('/', function () {
     $teachers = Teacher::all();
-    return view('home', compact('teachers'));
+    $locations = Location::all();
+    $categories = Category::all();
+    return view('home', compact('teachers', 'locations', 'categories'));
 
 })->name('home');
+
+Route::post('/search', function (Request $request) {
+    $locations = Location::all();
+    $categories = Category::all();
+    $search = $request->input('search');
+    $selectedCategory = $request->input('category');
+    $selectedLocation = $request->input('location');
+    
+    $teachers = Teacher::query();
+
+    if ($search) {
+        $teachers->where(function ($query) use ($search) {
+            $query->where('lastname', 'like', '%' . $search . '%')
+                ->orWhere('firstname', 'like', '%' . $search . '%');
+        });
+    }
+
+    if ($selectedCategory) {
+        $teachers->where('category_id', $selectedCategory);
+    }
+
+    if ($selectedLocation) {
+        $teachers->where('location_id', $selectedLocation);
+    }
+    
+    $teachers = $teachers->get();
+
+    return view('home', compact('teachers', 'locations', 'categories'));
+})->name('search');
+
+
 
 // about routes
 Route::get('/about', function () {
