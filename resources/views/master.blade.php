@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SyntraPXL Docenten portaal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       h1 {
         color: #CC0000;
@@ -20,6 +21,50 @@
             color: white!important;
             border-radius: 3px;
         }
+
+        button.btn.btn-primary.mt-2.search {
+          background-color: #df2618;
+          border: none;
+          font-size: small;
+      }
+
+      .card-link.teacher {
+          background-color: black;
+          color: white;
+          padding: 5px;
+          text-decoration: none;
+          border-radius: 4px;
+          font-size: 14px;
+          /* position: absolute; */
+          /* margin-right: 3px; */
+          display: inline;
+          float: right;
+      }
+
+      h6.card-subtitle.mb-2.text-muted.category {
+    background-color: white;
+    border-style: solid;
+    border-radius: 7px;
+    font-weight: 400;
+    font-size: 9px;
+    padding: 5px;
+    width: fit-content;
+    border-color: #cc0000;
+    border-width: 1px;
+    color: #CC0000!important;
+}
+      h6.card-subtitle.mb-2.text-muted.location {
+    background-color: white;
+    border-style: solid;
+    border-radius: 7px;
+    font-weight: 400;
+    font-size: 9px;
+    padding: 5px;
+    width: fit-content;
+    border-color: #000000;
+    border-width: 1px;
+    color: #000000!important;
+}
     </style>
   </head>
   <body>

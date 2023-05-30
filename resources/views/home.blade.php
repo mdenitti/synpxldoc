@@ -11,7 +11,7 @@
             <form action="{{ route('search') }}" method="POST">
                 @csrf
                 <input type="text" id="search" name="search" class="form-control" placeholder="Zoek een docent">
-                <button class="btn btn-primary mt-2" type="submit">Zoek</button>
+                <button class="btn btn-primary mt-2 search" type="submit">Zoek</button>
             </form>
         </div>
         <div class="col-md-4">
@@ -23,7 +23,7 @@
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
-                <button class="btn btn-primary mt-2" type="submit">Zoek</button>
+                <button class="btn btn-primary mt-2 search" type="submit">Zoek</button>
             </form>
         </div>
         <div class="col-md-4">
@@ -35,7 +35,7 @@
                         <option value="{{ $location->id }}">{{ $location->name }}</option>
                     @endforeach
                 </select>
-                <button class="btn btn-primary mt-2" type="submit">Zoek</button>
+                <button class="btn btn-primary mt-2 search" type="submit">Zoek</button>
             </form>
         </div>
     </div>
@@ -54,20 +54,21 @@
                   <div class="card-body">
                       <h5 class="card-title">{{ $teacher->firstname }} {{ $teacher->lastname }}</h5>
                       @if (!empty($teacher->category->name))
-                          <h6 class="card-subtitle mb-2 text-muted">{{ $teacher->category->name }}</h6>
+                          <h6 class="card-subtitle mb-2 text-muted category"><i class="fa-solid fa-fire-flame-simple"></i> {{ $teacher->category->name }}</h6>
                       @else
                           <h6 class="card-subtitle mb-2 text-muted">Nog geen categorie toegewezen</h6>
                       @endif
-                      <p class="card-text">{{ $teacher->description }}</p>
+
 
                       @if (!empty($teacher->location->name))
-                          <h6 class="card-subtitle mb-2 text-muted">{{ $teacher->location->name }}</h6>
+                          <h6 class="card-subtitle mb-2 text-muted location"><i class="fa-regular fa-building"></i> {{ $teacher->location->name }}</h6>
                       @else
                           <h6 class="card-subtitle mb-2 text-muted">Nog geen locatie toegewezen</h6>
                       @endif
+                        <p class="card-text">{{ $teacher->description }}</p>
 
-                      <a href="mailto:{{ $teacher->email }}" class="card-link">Mail</a>
-                      <a href="tel:{{ $teacher->phone }}" class="card-link">Bel</a>
+                      <a href="" class="card-link teacher">Contact</a>
+                  
                   </div>
               </div>
           </div>
