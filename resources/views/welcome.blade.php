@@ -7,11 +7,11 @@
   <div class="row">
     <form class="col-md-6">
       <div class="form-group">
-        <label for="lastname">Last Name:</label>
+        <label for="lastname">Achternaam:</label>
         <input type="text" class="form-control" id="lastname" name="lastname" required>
       </div>
       <div class="form-group">
-        <label for="firstname">First Name:</label>
+        <label for="firstname">Voornaam:</label>
         <input type="text" class="form-control" id="firstname" name="firstname" required>
       </div>
       <div class="form-group">
@@ -19,7 +19,7 @@
         <input type="email" class="form-control" id="email" name="email" required>
       </div>
       <div class="form-group">
-        <label for="phone">Phone:</label>
+        <label for="phone">Telefoon:</label>
         <input type="tel" class="form-control" id="phone" name="phone" required>
       </div>
       <div class="form-group">
@@ -27,33 +27,41 @@
         <input type="url" class="form-control" id="website" name="website" required>
       </div>
       <div class="form-group">
-        <label for="remarks">Remarks:</label>
+        <label for="remarks">Opmerkingen:</label>
         <textarea class="form-control" id="remarks" name="remarks" rows="3" required></textarea>
       </div>
       <div class="form-group">
-        <label for="description">Description:</label>
+        <label for="description">Benaming les:</label>
         <input type="text" class="form-control" id="description" name="description" required>
       </div>
     
       <div class="form-group">
-        <label for="category_id">Category ID:</label>
-        <input type="number" class="form-control" id="category_id" name="category_id">
+        <label for="location_id">Categorie:</label>
+        <select class="form-control" id="category" name="category_id" required>
+          <option value="">Selecteer een domein</option>
+          @foreach ($categories as $category)
+          <option value="{{ $category->id }}">{{ $category->name }}</option>
+          @endforeach
+        </select>
       </div>
+
+
       <div class="form-group">
-        <label for="location_id">Location:</label>
+        <label for="location_id">Campus:</label>
         <select class="form-control" id="location_id" name="location_id" required>
-          <option value="">Select a location</option>
+          <option value="">Selecteer een locatie</option>
           @foreach ($locations as $location)
           <option value="{{ $location->id }}">{{ $location->name }}</option>
           @endforeach
         </select>
       </div>
+
       <div class="form-group">
-        <label for="streetnr">Street Number:</label>
+        <label for="streetnr">Straat & nummer:</label>
         <input type="text" class="form-control" id="streetnr" name="streetnr">
       </div>
       <div class="form-group">
-        <label for="codecity">City Code:</label>
+        <label for="codecity">Postcode & gemeente:</label>
         <input type="text" class="form-control" id="codecity" name="codecity">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    // relation with teacher
+    public function teachers()
+    {
+        return $this->hasMany(Teacher::class);
+    }
 }

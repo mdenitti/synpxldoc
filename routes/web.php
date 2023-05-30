@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Location;
+use App\Models\Category;
 use App\Models\Page;
+use App\Models\Teacher;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +18,8 @@ use App\Models\Page;
 
 Route::get('/register', function () {
     $locations = Location::all();
-    return view('welcome', compact('locations'));
+    $categories = Category::all();
+    return view('welcome', compact('locations', 'categories'));
 })->name('register');
 
 Route::get('/location/{id}', function ($id) {
@@ -26,7 +29,9 @@ Route::get('/location/{id}', function ($id) {
 
 // home routes
 Route::get('/', function () {
-    return view('home');
+    $teachers = Teacher::all();
+    return view('home', compact('teachers'));
+
 })->name('home');
 
 // about routes

@@ -3,11 +3,37 @@
   <div class="row">
     <div class="col-md-10">
       <h2>Welkom</h2>
-    
-      <img src="https://www.syntra.be/wp-content/uploads/2022/07/mapje-met-dots.png" class="img-fluid mb-4">
-      <p>Kan jij een extra duwtje in de rug gebruiken om te slagen? Wij bieden begeleiding op maat van de cursist. De leercoaches helpen je gratis om je manier van leren te verbeteren. Mensen die een extra uitdaging met zich meedragen zoals dyslexie, dyscalculie, ADHD, autisme, enz. kunnen ook op de nodige hulp rekenen van de leercoaches.</p>
+       {{--  make cards of all the teachers with a contact button ($teachers) --}}
 
-      <p>Kan jij een extra duwtje in de rug gebruiken om te slagen? Wij bieden begeleiding op maat van de cursist. De leercoaches helpen je gratis om je manier van leren te verbeteren. Mensen die een extra uitdaging met zich meedragen zoals dyslexie, dyscalculie, ADHD, autisme, enz. kunnen ook op de nodige hulp rekenen van de leercoaches.</p>
+       <div class="container">
+  <div class="row">
+    @foreach ($teachers as $teacher)
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ $teacher->firstname }} {{ $teacher->lastname }}</h5>
+          @if (!empty($teacher->category->name))
+            <h6 class="card-subtitle mb-2 text-muted">{{ $teacher->category->name }}</h6>
+          @else
+            <h6 class="card-subtitle mb-2 text-muted">Nog geen category toegewezen</h6>
+          @endif
+          <p class="card-text">{{ $teacher->description }}</p>
+
+          <a href="mailto:{{ $teacher->email }}" class="card-link">Mail</a>
+          <a href="tel:{{ $teacher->phone }}" class="card-link">Bel</a>
+        </div>
+      </div>
+    </div>
+    @endforeach
+  </div>
+</div>
+
+
+            
+
+
+
+
       </div>
   </div>
 @endsection
