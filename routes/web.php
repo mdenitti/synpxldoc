@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Location;
+use App\Models\Page;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/register', function () {
+    $locations = Location::all();
+    return view('welcome', compact('locations'));
+})->name('register');
+
+Route::get('/location/{id}', function ($id) {
+    $location = Location::find($id);
+    return view('location', compact('location'));
 });
 
+// about routes
+Route::get('/about', function () {
+    $pages = Page::where('id', 2)->get();
+    return view('about', compact('pages'));
+})->name('about');
+
+// contact routes
+Route::get('/contact', function () {
+    $pages = Page::where('id', 3)->get();
+    return view('contact', compact('pages'));
+})->name('contact');
+
+// faq routes
+Route::get('/faq', function () {
+    $pages = Page::where('id', 1)->get();
+    return view('faq', compact('pages'));
+})->name('faq');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
